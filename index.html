@@ -4,11 +4,13 @@
     <form id="game-form">
       <label for="secret-number">Secret Code:</label>
       <input type="string" id="secret-number" />
-      <input type="submit" value="Start" />
-   
+      <button type="button" id="Start-button">Start</button>
+      <label for="prediction">Throw your guess</label>
+      <input type="string" id="prediction"/>
+      <button type="button" id="Guess-Button">Guess</button>
     </form>
-    <div id="resultado-div"></div>
-
+    <div id="secretcode-div"></div>
+    
     <script type="module" src="./src/presenter.js"></script>
   </body>
 </html>
