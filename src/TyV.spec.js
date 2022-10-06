@@ -31,7 +31,10 @@ describe("Enter Code", () => {
         round.tries = 8;
         expect(round.youLost()).toEqual(true);
     });
-   
+    it("Should continue the game ", () => {
+        round.tries =6;
+        expect(round.youLost()).toEqual(false);
+    });
 
 
   });
