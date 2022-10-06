@@ -7,6 +7,7 @@ const div = document.querySelector("#secretcode-div");
 const div1 = document.querySelector("#guess-div");
 const start =document.querySelector("#Start-button");
 const guess = document.querySelector("#Guess-button");
+const triesdiv = document.querySelector("#tries-div");
 let round;
 start.addEventListener("click", () => {
     round = new Game();
@@ -17,5 +18,6 @@ start.addEventListener("click", () => {
 guess.addEventListener("click", () => {
     let yourguess=pred.value;
     div1.innerHTML = "<p>" + ` Your guess is ${round.throwGuess(yourguess)} `+ "</p>";
+    triesdiv.innerHTML = "<p>" + ` Your guess is ${round.getAttempts()} `+"/ 8 "+ "</p>";
 });
 
