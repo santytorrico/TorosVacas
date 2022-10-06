@@ -16,6 +16,9 @@ start.addEventListener("click", () => {
 
 guess.addEventListener("click", () => {
     let yourguess=pred.value;
+    if(round.youLost()){
+    div1.innerHTML = "<p>" + `GAME OVER :'(`+ "</p>";
+    }
     div1.innerHTML = "<p>" + ` Your guess is ${round.throwGuess(yourguess)} `+ "</p>";
 });
 

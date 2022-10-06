@@ -33,13 +33,14 @@ class Game{
         return cows;
     }
 
-     correctLenght(element){
-         correct=false;
-         if(element.length()==4){
-             correct=true;
-         }
-         return correct;
-     }
+    youLost(){
+        let gameOver = false;
+        if(this.tries == 8){
+            gameOver = true;
+        }
+        return gameOver;
+    }
+
 
     
 }

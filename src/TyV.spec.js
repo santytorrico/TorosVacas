@@ -22,3 +22,16 @@ describe("Enter Code", () => {
     // });
 
   });
+  describe("LOSE", () => {
+    let round;
+    beforeEach(()=>{
+        round = new Game();
+    });
+    it("Should see GAME OVER", () => {
+        round.tries = 8;
+        expect(round.youLost()).toEqual(true);
+    });
+   
+
+
+  });
