@@ -13,7 +13,7 @@ describe("Enter Code", () => {
 
     it("Returns cows", () => {
         round.setSecretcode("1234")
-        expect(round.throwGuess("4321")).toEqual("4");
+        expect(round.throwGuess("4321")).toEqual("****");
     });
     
     // it("Returns ganaste", () => {

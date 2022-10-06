@@ -17,8 +17,7 @@ class Game{
         let bulls=0;
         let cows=0;
         cows=this.checkforCows(sctoarr,gtoarr);
-        return cows.toString();
-        
+        return this.numbertoCows(cows);
     }
 
     checkforCows(scarr,garr){
@@ -33,6 +32,11 @@ class Game{
         return cows;
     }
 
+    numbertoCows(number){
+        let cows="";
+        cows= '*'.repeat(number);
+        return cows;
+    }
     //  correctLenght(element){
     //      correct=false;
     //      if(element.length()==4){
