@@ -14,6 +14,7 @@ class Game{
     throwGuess(guess){
         const sctoarr=this.secretCode.split("");
         const gtoarr=guess.split("");
+        this.tries++;
         let bulls=0;
         let cows=0;
         cows=this.checkforCows(sctoarr,gtoarr);
