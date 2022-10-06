@@ -7,15 +7,15 @@ const div = document.querySelector("#secretcode-div");
 const div1 = document.querySelector("#guess-div");
 const start =document.querySelector("#Start-button");
 const guess = document.querySelector("#Guess-button");
-
+let round;
 start.addEventListener("click", () => {
-    let round = new Game();
+    round = new Game();
     round.setSecretcode(code.value);
     div.innerHTML = "<p>" + ` El codigo secreto es ${round.getSecretcode()} `+ "</p>";
 });
 
 guess.addEventListener("click", () => {
-    yourguess=pred.value;
-    div1.innerHTML = "<p>" + ` Your guess is ${yourguess} `+ "</p>";
+    let yourguess=pred.value;
+    div1.innerHTML = "<p>" + ` Your guess is ${round.throwGuess(yourguess)} `+ "</p>";
 });
 

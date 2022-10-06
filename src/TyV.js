@@ -14,7 +14,7 @@ class Game{
     throwGuess(guess){
         const sctoarr=this.secretCode.split("");
         const gtoarr=guess.split("");
-        //let bulls=0;
+        let bulls=0;
         let cows=0;
         cows=this.checkforCows(sctoarr,gtoarr);
         return cows.toString();
@@ -32,39 +32,16 @@ class Game{
         }
         return cows;
     }
-    // throwGuess(guess){
-    //     const sctoarr=this.secretCode.split("");
-    //     const gtoarr=this.guess.split("");
-    //     let result;
-    //     if(guess===this.secretCode){
-    //     return "Ganaste";
-    //     }
-    //     for(let i=0;i<this.secretCode.length();i++){
-    //         if(sctoarr[i]==gtoarr[i]){
 
-    //         }
-    //     }
-    //     return "!!!!";
-    // }
+     correctLenght(element){
+         correct=false;
+         if(element.length()==4){
+             correct=true;
+         }
+         return correct;
+     }
 
-    // correctLenght(element){
-    //     correct=false;
-    //     if(element.length()==4){
-    //         correct=true;
-    //     }
-    //     return correct;
-    // }
-
-    // inArray(element){
-    //     let exists= 0;
-    //     const sctoarr=this.secretCode.split("");
-    //     for(let i=0;i<this.secretCode.length();i++){
-    //         if(sctoarr[i]==element){
-    //             exists++;
-    //         }
-    //     }
-    //     return exists;
-    // }
+    
 }
 
 export default Game;
