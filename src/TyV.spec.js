@@ -31,6 +31,9 @@ describe("Enter Code", () => {
     it("Should start in 0", () => {
         expect(round.getAttempts()).toEqual(0);
     });
-    
+    it("It should increase by 1 each time it is played", () => {
+        round.throwGuess("1234");
+        expect(round.getAttempts()).toEqual(1);
+    });
 
   });
