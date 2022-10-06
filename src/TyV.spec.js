@@ -35,5 +35,18 @@ describe("Enter Code", () => {
         round.throwGuess("1234");
         expect(round.getAttempts()).toEqual(1);
     });
+    //El limite por defecto es 8 intentos
+    it("Should decrease by 1 each time played and no longer allow if over limit", () => {
+        round.throwGuess("1234");
+        round.throwGuess("1234");
+        round.throwGuess("1234");
+        round.throwGuess("1234");
+        round.throwGuess("1234");
+        round.throwGuess("1234");
+        round.throwGuess("1234");
+        round.throwGuess("1234");
+        
+        expect(round.throwGuess("1234")).toEqual("You have no more attempts");
+    });
 
   });
