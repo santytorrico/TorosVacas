@@ -16,8 +16,10 @@ class Game{
         const gtoarr=guess.split("");
         let bulls=0;
         let cows=0;
+        bulls=this.checkforBulls(sctoarr,gtoarr);
         cows=this.checkforCows(sctoarr,gtoarr);
-        return this.numbertoCows(cows);
+        return this.numbertoCows(cows)+this.numbertobulls(bulls);
+
     }
 
     checkforCows(scarr,garr){
@@ -32,6 +34,23 @@ class Game{
         return cows;
     }
 
+    checkforBulls(scarr,garr){
+        let bulls=0;
+        for(let i=0; i<scarr.length;i++){
+            for(let j=0; j<garr.length;j++){
+                if(i==j && scarr[i]==garr[j]){
+                    bulls++
+                }
+            }
+        }
+        return bulls;
+    }
+
+    numbertobulls(number){
+        let bulls="";
+        bulls= "!".repeat(number);
+        return bulls;
+    }
     numbertoCows(number){
         let cows="";
         cows= '*'.repeat(number);
