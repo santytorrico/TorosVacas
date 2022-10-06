@@ -40,6 +40,9 @@ class Game{
          }
          return correct;
      }
+     getAttempts(){
+        return this.tries;
+     }
 
     
 }

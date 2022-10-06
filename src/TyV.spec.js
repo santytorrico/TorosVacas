@@ -22,3 +22,15 @@ describe("Enter Code", () => {
     // });
 
   });
+  describe("Attempts", () => {
+    let round;
+    beforeEach(()=>{
+        round = new Game();
+    });
+
+    it("Should start in 0", () => {
+        expect(round.getAttempts()).toEqual(0);
+    });
+    
+
+  });
