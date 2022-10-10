@@ -2,6 +2,8 @@ class Game{
     constructor(){
         this.secretCode=" ";
         this.tries=0;
+        this.attempts=8;
+
     }
     setSecretcode(code){
         this.secretCode=code;
@@ -12,7 +14,7 @@ class Game{
     }
 
     throwGuess(guess){
-        if(this.tries <8){
+        if(this.tries <this.getAttempts()){
             const sctoarr=this.secretCode.split("");
             const gtoarr=guess.split("");
             this.tries++;
@@ -44,10 +46,16 @@ class Game{
          }
          return correct;
      }
-     getAttempts(){
+     getTries(){
         return this.tries;
      }
 
+    getAttempts(){
+        return this.attempts;
+    }
+    setAttempts(nAttempts){
+        this.attempts=nAttempts;
+    }
     
 }
 
