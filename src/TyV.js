@@ -56,13 +56,14 @@ class Game{
         cows= '*'.repeat(number);
         return cows;
     }
-    //  correctLenght(element){
-    //      correct=false;
-    //      if(element.length()==4){
-    //          correct=true;
-    //      }
-    //      return correct;
-    //  }
+
+    youWin(guess){
+        let win = false;
+        if(this.throwGuess(guess)=="!!!!"){
+            win = true;
+        }
+        return win;
+    }
 
     
 }
