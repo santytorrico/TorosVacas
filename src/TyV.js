@@ -107,6 +107,9 @@ class Game{
         if(guescode-1 == secretcode){
             terneras++
         }
+        else if(guescode+1 == secretcode){
+            terneras ++
+        }
         return terneras;
     }
     

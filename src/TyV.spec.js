@@ -124,7 +124,10 @@ describe("Enter Code", () => {
         });
     
         it("Deberia mostrar que exista una ternera para un numero mayor", () => {
-            expect(round.findTernera("1","2")).toEqual(1);
+            expect(round.findTernera(1,2)).toEqual(1);
+        });
+        it("Deberia mostrar que exista una ternera para un numero menor", () => {
+            expect(round.findTernera(5,4)).toEqual(1);
         });
         
     
