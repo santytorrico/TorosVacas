@@ -1,4 +1,5 @@
-import Game from "./TyV"
+import Game from "./TyV";
+import './toBeWithinRange';
 
 describe("Enter Code", () => {
     let round;
@@ -33,3 +34,86 @@ describe("Enter Code", () => {
     });
 
   });
+  describe("Attempts", () => {
+    let round;
+    beforeEach(()=>{
+        round = new Game();
+    });
+    it("Should see GAME OVER", () => {
+        round.tries = 8;
+        expect(round.youLost()).toEqual(true);
+    });
+    it("Should continue the game ", () => {
+        round.tries =6;
+        expect(round.youLost()).toEqual(false);
+    });
+
+
+  });
+
+  describe("LOSE", () => {
+    let round;
+    beforeEach(()=>{
+        round = new Game();
+    });
+    it("Should start in 0", () => {
+        expect(round.getAttempts()).toEqual(0);
+    });
+    it("It should increase by 1 each time it is played", () => {
+        round.throwGuess("1234");
+        expect(round.getAttempts()).toEqual(1);
+    });
+    //El limite por defecto es 8 intentos
+    it("Should decrease by 1 each time played and no longer allow if over limit", () => {
+        round.throwGuess("1234");
+        round.throwGuess("1234");
+        round.throwGuess("1234");
+        round.throwGuess("1234");
+        round.throwGuess("1234");
+        round.throwGuess("1234");
+        round.throwGuess("1234");
+        round.throwGuess("1234");
+        
+        expect(round.throwGuess("1234")).toEqual("You have no more attempts");
+    });
+});
+
+    describe("Restart game", () => {
+        let round;
+        beforeEach(()=>{
+            round = new Game();
+        });
+    
+        it("the secret code should be erased", () => {
+            round.replay()
+            expect(round.getSecretcode()).toEqual("");
+        });
+        it("the intents should be restarted ", () => {
+            round.throwGuess("1234");
+            round.throwGuess("1234");
+            round.throwGuess("1234");
+            round.replay()
+            expect(round.getAttempts()).toEqual(0);
+        });
+        
+        
+
+    });
+    describe("Random Code", () => {
+        let round;
+        beforeEach(()=>{
+            round = new Game();
+        });
+    
+        it("should generate a random number within a range", () => {
+            let number = round.randomNumber(1,8)
+            expect(number).toBeWithinRange(0,8);
+
+        });
+        it("should generate a string with random numbers", () => {
+            round.randomCode();
+            let secret = round.getSecretcode();
+        });
+        
+        
+    });

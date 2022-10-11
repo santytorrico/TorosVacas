@@ -64,7 +64,27 @@ class Game{
         }
         return win;
     }
+    youLost(){
+        let gameOver = false;
+        if(this.tries == 8){
+            gameOver = true;
+        }
+        return gameOver;
+    }
 
+     getAttempts(){
+        return this.tries;
+    }
+    replay(){
+        this.secretCode = "";
+        this.tries = 0;
+    }
+    randomNumber(min, max) {
+        return Math.floor((Math.random() * (max - min + 1)) + min);
+    }
+    randomCode(){
+        this.secretCode += String(this.randomNumber(0,8));
+    }
     
 }
 
