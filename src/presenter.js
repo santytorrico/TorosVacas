@@ -14,10 +14,15 @@ let round;
 start.addEventListener("click", () => {
     round = new Game();
     round.setSecretcode(code.value);
+    let noBisons=0;
+    let bisons="";
     document.getElementById("secret-number").value = "";
     if(Attempts.value!=0){
         round.setAttempts(Attempts.value);
     }
+    noBisons=round.checkforBison(code.value);
+    bisons=numbertobisons(noBisons);
+    secretDiv.innerHTML = "<p>" + ` El codigo secreto tiene  ${bisons} bisons`+ "</p>";
     //secretDiv.innerHTML = "<p>" + ` El codigo secreto es ${round.getSecretcode()} `+ "</p>";
     
 });
