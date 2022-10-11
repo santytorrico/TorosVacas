@@ -57,11 +57,11 @@ describe("Enter Code", () => {
         round = new Game();
     });
     it("Should start in 0", () => {
-        expect(round.getAttempts()).toEqual(0);
+        expect(round.getTries()).toEqual(0);
     });
     it("It should increase by 1 each time it is played", () => {
         round.throwGuess("1234");
-        expect(round.getAttempts()).toEqual(1);
+        expect(round.getTries()).toEqual(1);
     });
     //El limite por defecto es 8 intentos
     it("Should decrease by 1 each time played and no longer allow if over limit", () => {
@@ -93,7 +93,7 @@ describe("Enter Code", () => {
             round.throwGuess("1234");
             round.throwGuess("1234");
             round.replay()
-            expect(round.getAttempts()).toEqual(0);
+            expect(round.getTries()).toEqual(0);
         });
         
         

@@ -2,6 +2,8 @@ class Game{
     constructor(){
         this.secretCode=" ";
         this.tries=0;
+        this.attempts=8;
+
     }
     setSecretcode(code){
         this.secretCode=code;
@@ -12,7 +14,7 @@ class Game{
     }
 
     throwGuess(guess){
-        if(this.tries <8){
+        if(this.tries <this.getAttempts()){
             const sctoarr=this.secretCode.split("");
             const gtoarr=guess.split("");
             this.tries++;
@@ -63,7 +65,7 @@ class Game{
 
     youWin(guess){
         let win = false;
-        if(this.throwGuess(guess)=="!!!!"){
+        if(guess=="!!!!"){
             win = true;
         }
         return win;
@@ -76,9 +78,6 @@ class Game{
         return gameOver;
     }
 
-     getAttempts(){
-        return this.tries;
-    }
     replay(){
         this.secretCode = "";
         this.tries = 0;
@@ -87,7 +86,20 @@ class Game{
         return Math.floor((Math.random() * (max - min + 1)) + min);
     }
     randomCode(){
-        this.secretCode += String(this.randomNumber(0,8));
+        let result="";
+        for(let i=0; i<4;i++){
+            result += String(this.randomNumber(0,8));
+        }
+        return result;
+    }
+    getAttempts(){
+        return this.attempts;
+    }
+    setAttempts(nAttempts){
+        this.attempts=nAttempts;
+    }
+    getTries(){
+        return this.tries;
     }
     
 }

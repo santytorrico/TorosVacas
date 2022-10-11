@@ -1,7 +1,9 @@
 import Game from "./TyV"
 
 const code= document.querySelector("#secret-number");
+const Attempts= document.querySelector("#number-attempts");
 const pred= document.querySelector("#prediction");
+const random= document.querySelector("#Random");
 const form = document.querySelector("#game-form");
 const div = document.querySelector("#secretcode-div");
 const div1 = document.querySelector("#guess-div");
@@ -13,19 +15,33 @@ let round;
 start.addEventListener("click", () => {
     round = new Game();
     round.setSecretcode(code.value);
-    div.innerHTML = "<p>" + ` El codigo secreto es ${round.getSecretcode()} `+ "</p>";
+    document.getElementById("secret-number").value = "";
+    if(Attempts.value!=0){
+        round.setAttempts(Attempts.value);
+    }
+    //div.innerHTML = "<p>" + ` El codigo secreto es ${round.getSecretcode()} `+ "</p>";
     
 });
-
+random.addEventListener("click", () => {
+    round = new Game();
+    round.setSecretcode(round.randomCode());
+    if(Attempts.value!=0){
+        round.setAttempts(Attempts.value);
+    }
+    //div.innerHTML = "<p>" + ` El codigo secreto es ${round.getSecretcode()} `+ "</p>";
+});
 guess.addEventListener("click", () => {
     let yourguess=pred.value;
+    let result="";
     if(round.youLost()){
     div1.innerHTML = "<p>" + `GAME OVER :'(`+ "</p>";
     }
-    round.youWin(yourguess)? div1.innerHTML = "<p>" + ` Ganaste `+ "</p>":div1.innerHTML = "<p>" + ` Your guess is ${round.throwGuess(yourguess)} `+ "</p>";
-    triesdiv.innerHTML = "<p>" + ` Your guess is ${round.getAttempts()} `+"/ 8 "+ "</p>";
+    result=round.throwGuess(yourguess); 
+    round.youWin(result)? div1.innerHTML = "<p>" + ` Ganaste `+ "</p>":div1.innerHTML = "<p>" + ` Your guess is ${result} `+ "</p>";
+    triesdiv.innerHTML = "<p>" + ` Your guess is ${round.getTries()} `+`/ ${round.getAttempts()}`+ "</p>";
     
 });
+
 restart.addEventListener("click", () => {
     round.replay();
     document.getElementById("secret-number").value = "";
