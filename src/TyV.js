@@ -12,14 +12,18 @@ class Game{
     }
 
     throwGuess(guess){
-        const sctoarr=this.secretCode.split("");
-        const gtoarr=guess.split("");
-        let bulls=0;
-        let cows=0;
-        bulls=this.checkforBulls(sctoarr,gtoarr);
-        cows=this.checkforCows(sctoarr,gtoarr);
-        return this.numbertoCows(cows)+this.numbertobulls(bulls);
-
+        if(this.tries <8){
+            const sctoarr=this.secretCode.split("");
+            const gtoarr=guess.split("");
+            this.tries++;
+            let bulls=0;
+            let cows=0;
+            bulls=this.checkforBulls(sctoarr,gtoarr);
+            cows=this.checkforCows(sctoarr,gtoarr);
+            return this.numbertoCows(cows)+this.numbertobulls(bulls);
+        }
+        return "You have no more attempts";
+        
     }
 
     checkforCows(scarr,garr){

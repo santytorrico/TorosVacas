@@ -1,4 +1,4 @@
-import Game from "./TyV";
+import Game from "./TyV"
 import './toBeWithinRange';
 
 describe("Enter Code", () => {
