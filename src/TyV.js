@@ -81,6 +81,7 @@ class Game{
     replay(){
         this.secretCode = "";
         this.tries = 0;
+        this.attempts =8;
     }
     randomNumber(min, max) {
         return Math.floor((Math.random() * (max - min + 1)) + min);
