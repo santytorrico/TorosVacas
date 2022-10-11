@@ -37,17 +37,19 @@ class Game{
         return cows;
     }
 
-     correctLenght(element){
-         correct=false;
-         if(element.length()==4){
-             correct=true;
-         }
-         return correct;
-     }
      getAttempts(){
         return this.tries;
-     }
-
+    }
+    replay(){
+        this.secretCode = "";
+        this.tries = 0;
+    }
+    randomNumber(min, max) {
+        return Math.floor((Math.random() * (max - min + 1)) + min);
+    }
+    randomCode(){
+        this.secretCode += String(this.randomNumber(0,8));
+    }
     
 }
 

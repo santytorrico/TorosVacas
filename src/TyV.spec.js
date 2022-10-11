@@ -1,4 +1,5 @@
-import Game from "./TyV"
+import Game from "./TyV";
+import './toBeWithinRange';
 
 describe("Enter Code", () => {
     let round;
@@ -21,7 +22,7 @@ describe("Enter Code", () => {
     //     expect(round.throwGuess("1234")).toEqual("Ganaste");
     // });
 
-  });
+    });
   describe("Attempts", () => {
     let round;
     beforeEach(()=>{
@@ -48,5 +49,44 @@ describe("Enter Code", () => {
         
         expect(round.throwGuess("1234")).toEqual("You have no more attempts");
     });
+});
 
-  });
+    describe("Restart game", () => {
+        let round;
+        beforeEach(()=>{
+            round = new Game();
+        });
+    
+        it("the secret code should be erased", () => {
+            round.replay()
+            expect(round.getSecretcode()).toEqual("");
+        });
+        it("the intents should be restarted ", () => {
+            round.throwGuess("1234");
+            round.throwGuess("1234");
+            round.throwGuess("1234");
+            round.replay()
+            expect(round.getAttempts()).toEqual(0);
+        });
+        
+        
+
+    });
+    describe("Random Code", () => {
+        let round;
+        beforeEach(()=>{
+            round = new Game();
+        });
+    
+        it("should generate a random number within a range", () => {
+            let number = round.randomNumber(1,8)
+            expect(number).toBeWithinRange(0,8);
+
+        });
+        it("should generate a string with random numbers", () => {
+            round.randomCode();
+            let secret = round.getSecretcode();
+        });
+        
+        
+    });
