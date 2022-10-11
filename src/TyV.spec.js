@@ -21,7 +21,7 @@ describe("Enter Code", () => {
     //     expect(round.throwGuess("1234")).toEqual("Ganaste");
     // });
 
-  });
+    });
   describe("Attempts", () => {
     let round;
     beforeEach(()=>{
@@ -48,5 +48,19 @@ describe("Enter Code", () => {
         
         expect(round.throwGuess("1234")).toEqual("You have no more attempts");
     });
+});
 
-  });
+    describe("Restart game", () => {
+        let round;
+        beforeEach(()=>{
+            round = new Game();
+        });
+    
+        it("the secret code should be erased", () => {
+            round.replay()
+            expect(round.getSecretcode()).toEqual("");
+        });
+        
+        
+
+    });
