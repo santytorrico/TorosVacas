@@ -60,6 +60,13 @@ describe("Enter Code", () => {
             round.replay()
             expect(round.getSecretcode()).toEqual("");
         });
+        it("the intents should be restarted ", () => {
+            round.throwGuess("1234");
+            round.throwGuess("1234");
+            round.throwGuess("1234");
+            round.replay()
+            expect(round.getAttempts()).toEqual(0);
+        });
         
         
 

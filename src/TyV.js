@@ -42,6 +42,7 @@ class Game{
     }
      replay(){
         this.secretCode = "";
+        this.tries = 0;
     }
 
     
