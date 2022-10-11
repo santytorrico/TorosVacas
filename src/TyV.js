@@ -12,12 +12,16 @@ class Game{
     }
 
     throwGuess(guess){
-        const sctoarr=this.secretCode.split("");
-        const gtoarr=guess.split("");
-        let bulls=0;
-        let cows=0;
-        cows=this.checkforCows(sctoarr,gtoarr);
-        return cows.toString();
+        if(this.tries <8){
+            const sctoarr=this.secretCode.split("");
+            const gtoarr=guess.split("");
+            this.tries++;
+            let bulls=0;
+            let cows=0;
+            cows=this.checkforCows(sctoarr,gtoarr);
+            return cows.toString();
+        }
+        return "You have no more attempts";
         
     }
 
@@ -41,6 +45,19 @@ class Game{
         return gameOver;
     }
 
+     getAttempts(){
+        return this.tries;
+    }
+    replay(){
+        this.secretCode = "";
+        this.tries = 0;
+    }
+    randomNumber(min, max) {
+        return Math.floor((Math.random() * (max - min + 1)) + min);
+    }
+    randomCode(){
+        this.secretCode += String(this.randomNumber(0,8));
+    }
 
     
 }
