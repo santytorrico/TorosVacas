@@ -20,9 +20,11 @@ class Game{
             this.tries++;
             let bulls=0;
             let cows=0;
+            let terneras =0;
             bulls=this.checkforBulls(sctoarr,gtoarr);
             cows=this.checkforCows(sctoarr,gtoarr);
-            return this.numbertoCows(cows)+this.numbertobulls(bulls);
+            terneras = this.findTernera(sctoarr,gtoarr);
+            return this.numbertoTerneras(terneras)+this.numbertoCows(cows)+this.numbertobulls(bulls);
         }
         return "You have no more attempts";
         
@@ -61,6 +63,11 @@ class Game{
         let cows="";
         cows= '*'.repeat(number);
         return cows;
+    }
+    numbertoTerneras(number){
+        let terneras="";
+        terneras= '#'.repeat(number);
+        return terneras;
     }
 
     youWin(guess){
@@ -104,13 +111,21 @@ class Game{
     }
     findTernera(secretcode,guescode){
         let terneras=0;
-        if(guescode-1 == secretcode){
-            terneras++
-        }
-        else if(guescode+1 == secretcode){
-            terneras ++
+        
+        for(let i=0; i<secretcode.length;i++){
+            for(let j=0; j<guescode.length;j++){
+                if(i==j){
+                    if(Number(guescode[j])-1 == Number(secretcode[i])){
+                        terneras++
+                    }
+                    else if(Number(guescode[j])+1 == Number(secretcode[i])){
+                        terneras ++
+                    }
+                }
+            }
         }
         return terneras;
+        
     }
     
 }
