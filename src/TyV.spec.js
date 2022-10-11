@@ -16,19 +16,30 @@ describe("Enter Code", () => {
         round.setSecretcode("1234")
         expect(round.throwGuess("4321")).toEqual("4");
     });
-    
-    // it("Returns ganaste", () => {
-    //     round.setSecretcode("1234")
-    //     expect(round.throwGuess("1234")).toEqual("Ganaste");
-    // });
 
-    });
+  });
   describe("Attempts", () => {
     let round;
     beforeEach(()=>{
         round = new Game();
     });
+    it("Should see GAME OVER", () => {
+        round.tries = 8;
+        expect(round.youLost()).toEqual(true);
+    });
+    it("Should continue the game ", () => {
+        round.tries =6;
+        expect(round.youLost()).toEqual(false);
+    });
 
+
+  });
+
+  describe("LOSE", () => {
+    let round;
+    beforeEach(()=>{
+        round = new Game();
+    });
     it("Should start in 0", () => {
         expect(round.getAttempts()).toEqual(0);
     });
@@ -90,3 +101,4 @@ describe("Enter Code", () => {
         
         
     });
+

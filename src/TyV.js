@@ -37,6 +37,14 @@ class Game{
         return cows;
     }
 
+    youLost(){
+        let gameOver = false;
+        if(this.tries == 8){
+            gameOver = true;
+        }
+        return gameOver;
+    }
+
      getAttempts(){
         return this.tries;
     }
@@ -50,6 +58,7 @@ class Game{
     randomCode(){
         this.secretCode += String(this.randomNumber(0,8));
     }
+
     
 }
 
