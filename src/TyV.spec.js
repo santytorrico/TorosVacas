@@ -117,3 +117,19 @@ describe("Enter Code", () => {
         
         
     });
+    describe("Ternera", () => {
+        let round;
+        beforeEach(()=>{
+            round = new Game();
+        });
+    
+        it("Deberia mostrar que exista una ternera para un numero mayor", () => {
+            expect(round.findTernera("1","2")).toEqual(1);
+        });
+        
+    
+        
+    
+      });
+
+    

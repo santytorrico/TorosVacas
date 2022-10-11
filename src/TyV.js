@@ -102,6 +102,13 @@ class Game{
     getTries(){
         return this.tries;
     }
+    findTernera(secretcode,guescode){
+        let terneras=0;
+        if(guescode-1 == secretcode){
+            terneras++
+        }
+        return terneras;
+    }
     
 }
 
