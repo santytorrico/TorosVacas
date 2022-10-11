@@ -1,4 +1,5 @@
-import Game from "./TyV"
+import Game from "./TyV";
+import './toBeWithinRange';
 
 describe("Enter Code", () => {
     let round;
@@ -70,4 +71,18 @@ describe("Enter Code", () => {
         
         
 
+    });
+    describe("Random Code", () => {
+        let round;
+        beforeEach(()=>{
+            round = new Game();
+        });
+    
+        it("should generate a random number within a range", () => {
+            let number = round.randomNumber(1,8)
+            expect(number).toBeWithinRange(0,8);
+
+        });
+        
+        
     });
