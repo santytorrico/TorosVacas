@@ -83,6 +83,10 @@ describe("Enter Code", () => {
             expect(number).toBeWithinRange(0,8);
 
         });
+        it("should generate a string with random numbers", () => {
+            round.randomCode();
+            let secret = round.getSecretcode();
+        });
         
         
     });

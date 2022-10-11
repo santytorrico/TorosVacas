@@ -47,6 +47,9 @@ class Game{
     randomNumber(min, max) {
         return Math.floor((Math.random() * (max - min + 1)) + min);
     }
+    randomCode(){
+        this.secretCode += String(this.randomNumber(0,8));
+    }
     
 }
 
