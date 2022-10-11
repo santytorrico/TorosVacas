@@ -127,6 +127,24 @@ class Game{
         return terneras;
         
     }
+    findPrimo(secretCode){
+        if (secretCode<=1) return false;
+        for (var i = 2; i <= secretCode-1; i++){
+            if (secretCode % i == 0) return false;
+        }
+            
+        return true;
+    }
+
+    findPrimosinSecretCode(){
+        const secret=this.secretCode.split("");
+        let primos = [];
+        for(let j=0; j<secret.length;j++){
+            primos.add(this.findPrimo(secret[j]));
+
+        }
+        return primos;
+    }
     
 }
 

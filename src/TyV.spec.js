@@ -14,7 +14,7 @@ describe("Enter Code", () => {
 
     it("Returns that all the digits are cows", () => {
         round.setSecretcode("1234")
-        expect(round.throwGuess("4321")).toEqual("****");
+        expect(round.throwGuess("4321")).toEqual("##****");
     });
     
     it("Returns a bull and 2 cows", () => {
@@ -124,10 +124,33 @@ describe("Enter Code", () => {
         });
     
         it("Deberia mostrar que exista una ternera para un numero mayor", () => {
-            expect(round.findTernera(1,2)).toEqual(1);
+            round.setSecretcode("1")
+            expect(round.throwGuess("2")).toEqual("#");
         });
         it("Deberia mostrar que exista una ternera para un numero menor", () => {
-            expect(round.findTernera(5,4)).toEqual(1);
+            round.setSecretcode("5")
+            expect(round.throwGuess("4")).toEqual("#");
+        });
+        it("Deberia mostrar todas las terneras", () => {
+            round.setSecretcode("1234")
+            expect(round.throwGuess("1334")).toEqual("#*!!!");
+        });
+        it("Deberia mostrar todas las terneras", () => {
+            round.setSecretcode("1234")
+            expect(round.throwGuess("1134")).toEqual("#*!!!");
+        });
+    
+        
+    
+      });
+      describe("encontrar primos", () => {
+        let round;
+        beforeEach(()=>{
+            round = new Game();
+        });
+    
+        it("Deberia mostrar que exista 1 primo", () => {
+            expect(round.findPrimo(3)).toEqual(true);
         });
         
     
