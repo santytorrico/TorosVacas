@@ -128,6 +128,11 @@ describe("Enter Code", () => {
             expect(round.getTerneras(3)).toEqual("#");
 
         });
+        it("No deberia encontrarnos", () => {
+            round.setSecretcode(2);
+            expect(round.getTerneras(4)).toEqual("");
+
+        });
         
         
         

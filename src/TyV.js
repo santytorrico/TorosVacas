@@ -107,6 +107,9 @@ class Game{
         if(trie-1 == this.getSecretcode()){
             return "#";
         }
+        else{
+            return ""
+        }
     }
 }
 
