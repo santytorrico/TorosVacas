@@ -143,6 +143,11 @@ describe("Enter Code", () => {
             expect(round.buscarTerneras("14")).toEqual("##");
 
         });
+        it("Deberia encontrarnos 1 ternero en la cadena", () => {
+            round.setSecretcode("24");
+            expect(round.buscarTerneras("14")).toEqual("#");
+
+        });
         
         
         
