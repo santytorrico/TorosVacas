@@ -126,6 +126,14 @@ class Game{
 
 
     }
+    encontrarPrimo(codigo){
+        for (var i = 2; i < codigo; i++) {
+            if (codigo%i==0){
+                return false;
+            }
+        };
+        return true;
+    }
 }
 
 export default Game;

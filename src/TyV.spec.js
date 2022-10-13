@@ -152,3 +152,17 @@ describe("Enter Code", () => {
         
         
     });
+    describe("Bisontes", () => {
+        let round;
+        beforeEach(()=>{
+            round = new Game();
+        });
+    
+        it("Deberia encontrar un numero primo", () => {
+            expect(round.encontrarPrimo(3)).toEqual(true);
+
+        });
+        
+        
+        
+    });
