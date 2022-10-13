@@ -133,6 +133,11 @@ describe("Enter Code", () => {
             expect(round.getTerneras(4)).toEqual("");
 
         });
+        it("Deberia encontrarnos un ternero para un numero menor", () => {
+            round.setSecretcode(4);
+            expect(round.getTerneras(3)).toEqual("#");
+
+        });
         
         
         
