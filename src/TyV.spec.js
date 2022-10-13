@@ -37,10 +37,15 @@ describe("Enter Code", () => {
         round.setSecretcode("2")
         expect(round.checkforTerneras("3")).toEqual("#");
     });
-    
+
     it("don't get terneras", () => {
         round.setSecretcode("2")
         expect(round.checkforTerneras("4")).toEqual("");
+    });
+
+    it("should check if the number is equal to the secret code plus 1", () => {
+        round.setSecretcode("2")
+        expect(round.checkforTerneras("3")).toEqual("#");
     });
 
 

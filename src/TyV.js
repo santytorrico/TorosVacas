@@ -53,16 +53,14 @@ class Game{
     }
 
     checkforTerneras(number){
-        if(number==(2+1)){
-            return "#";
-        }
-        if(number==(2-1)){
+        if(number==parseInt(this.getSecretcode())+1){
             return "#";
         }
         return "";
 
 
     }
+    
 
     numbertobulls(number){
         let bulls="";
