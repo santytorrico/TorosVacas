@@ -103,6 +103,11 @@ class Game{
         return this.tries;
     }
     
+    getTerneras(trie){
+        if(trie > this.getSecretcode()){
+            return "#";
+        }
+    }
 }
 
 export default Game;

@@ -117,3 +117,18 @@ describe("Enter Code", () => {
         
         
     });
+    describe("Terneros", () => {
+        let round;
+        beforeEach(()=>{
+            round = new Game();
+        });
+    
+        it("Deberia encontrarnos un ternero para un numero mayor", () => {
+            round.setSecretcode(2);
+            expect(round.getTerneras(3)).toEqual("#");
+
+        });
+        
+        
+        
+    });
