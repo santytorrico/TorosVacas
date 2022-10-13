@@ -104,7 +104,7 @@ class Game{
     }
     
     getTerneras(trie){
-        if(trie > this.getSecretcode()){
+        if(trie-1 == this.getSecretcode()){
             return "#";
         }
     }
