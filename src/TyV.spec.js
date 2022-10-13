@@ -53,6 +53,17 @@ describe("Enter Code", () => {
         expect(round.checkforTerneras("1")).toEqual("#");
     });
 
+    it("should check if the number is equal to the secret code no matter is bigger or smaller but just with a difference of 1", () => {
+        round.setSecretcode("23")
+        expect(round.checkforTerneras("24")).toEqual("#");
+    });
+
+    
+    it("should check if the number is equal to the secret code no matter is bigger or smaller but just with a difference of 1", () => {
+        round.setSecretcode("23")
+        expect(round.checkforTerneras("22")).toEqual("#");
+    });
+
   });
   describe("Attempts", () => {
     let round;
