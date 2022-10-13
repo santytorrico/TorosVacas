@@ -33,6 +33,11 @@ describe("Enter Code", () => {
         expect(round.throwGuess("1234")).toEqual("!!!!");
     });
 
+    it("Get a ternera", () => {
+        round.setSecretcode("2")
+        expect(round.checkforTerneras("3")).toEqual("#");
+    });
+
   });
   describe("Attempts", () => {
     let round;

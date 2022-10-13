@@ -52,6 +52,10 @@ class Game{
         return bulls;
     }
 
+    checkforTerneras(number){
+            return "#";
+    }
+
     numbertobulls(number){
         let bulls="";
         bulls= "!".repeat(number);
