@@ -103,13 +103,28 @@ class Game{
         return this.tries;
     }
     
-    getTerneras(trie){
-        if(trie-1 == this.getSecretcode() || trie+1 == this.getSecretcode()){
+    getTerneras(trie, secret){
+        if(trie-1 == secret || trie+1 == secret){
             return "#";
         }
         else{
             return ""
         }
+    }
+    buscarTerneras(intentoCompleto){
+        let terneras = "";
+        const sctoarr=this.secretCode.split("");
+        const gtoarr=intentoCompleto.split("");
+        for(let i=0; i<sctoarr.length;i++){
+            for(let j=0; j<gtoarr.length;j++){
+                if(i==j){
+                    terneras += this.getTerneras(Number(gtoarr[j]),Number(sctoarr[i]));
+                }
+            }
+        }
+        return terneras;
+
+
     }
 }
 

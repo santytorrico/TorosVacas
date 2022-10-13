@@ -125,17 +125,22 @@ describe("Enter Code", () => {
     
         it("Deberia encontrarnos un ternero para un numero mayor", () => {
             round.setSecretcode(2);
-            expect(round.getTerneras(3)).toEqual("#");
+            expect(round.getTerneras(3,2)).toEqual("#");
 
         });
         it("No deberia encontrarnos", () => {
             round.setSecretcode(2);
-            expect(round.getTerneras(4)).toEqual("");
+            expect(round.getTerneras(4,2)).toEqual("");
 
         });
         it("Deberia encontrarnos un ternero para un numero menor", () => {
             round.setSecretcode(4);
-            expect(round.getTerneras(3)).toEqual("#");
+            expect(round.getTerneras(3,4)).toEqual("#");
+
+        });
+        it("Deberia encontrarnos dos terneras", () => {
+            round.setSecretcode("23");
+            expect(round.buscarTerneras("14")).toEqual("##");
 
         });
         
