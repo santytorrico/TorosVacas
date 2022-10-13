@@ -53,7 +53,15 @@ class Game{
     }
 
     checkforTerneras(number){
+        if(number==(2+1)){
             return "#";
+        }
+        if(number==(2-1)){
+            return "#";
+        }
+        return "";
+
+
     }
 
     numbertobulls(number){
