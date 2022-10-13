@@ -162,6 +162,10 @@ describe("Enter Code", () => {
             expect(round.encontrarPrimo(3)).toEqual(true);
 
         });
+        it("No deberia encontrar un numero primo", () => {
+            expect(round.encontrarPrimo(4)).toEqual(false);
+
+        });
         
         
         

@@ -127,12 +127,12 @@ class Game{
 
     }
     encontrarPrimo(codigo){
-        for (var i = 2; i < codigo; i++) {
-            if (codigo%i==0){
-                return false;
-            }
-        };
-        return true;
+        if (codigo == 0 || codigo == 1 || codigo == 4) return false;
+	    for (let x = 2; x < codigo / 2; x++) {
+		    if (codigo % x == 0) return false;
+	    }
+	// Si no se pudo dividir por ninguno de los de arriba, sí es primo
+	    return true;
     }
 }
 
