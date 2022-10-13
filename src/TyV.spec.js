@@ -48,6 +48,10 @@ describe("Enter Code", () => {
         expect(round.checkforTerneras("3")).toEqual("#");
     });
 
+    it("should check if the number is equal to the secret code minus 1", () => {
+        round.setSecretcode("2")
+        expect(round.checkforTerneras("1")).toEqual("#");
+    });
 
   });
   describe("Attempts", () => {

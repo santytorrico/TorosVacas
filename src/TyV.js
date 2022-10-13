@@ -56,6 +56,9 @@ class Game{
         if(number==parseInt(this.getSecretcode())+1){
             return "#";
         }
+        if(number==parseInt(this.getSecretcode())-1){
+            return "#"
+        }
         return "";
 
 
