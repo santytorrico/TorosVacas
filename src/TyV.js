@@ -52,19 +52,24 @@ class Game{
         return bulls;
     }
 
-    checkforTerneras(number){
-        if(number==parseInt(this.getSecretcode())+1){
-            return "#";
+    checkforTerneras(scarr,garr){
+        let ternera=0;
+        const stocarr=scarr.split("");
+        const gtoarr=garr.split("");    
+        for(let i=0; i<stocarr.length;i++){
+            for(let j=0; j<gtoarr.length;j++){
+                if(gtoarr[i]-1==stocarr[j]){
+                    ternera++;
+                }
+                if(gtoarr[i]==stocarr[j]-1){
+                    ternera++;
+                }
+            }            
         }
-        if(number==parseInt(this.getSecretcode())-1){
-            return "#"
-        }
-        return "";
-
-
+        let total = "#".repeat(ternera);
+        return total;
     }
     
-
     numbertobulls(number){
         let bulls="";
         bulls= "!".repeat(number);

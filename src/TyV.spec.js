@@ -35,35 +35,29 @@ describe("Enter Code", () => {
 
     it("Get a ternera", () => {
         round.setSecretcode("2")
-        expect(round.checkforTerneras("3")).toEqual("#");
+        expect(round.checkforTerneras("2","3")).toEqual("#");
     });
 
     it("don't get terneras", () => {
         round.setSecretcode("2")
-        expect(round.checkforTerneras("4")).toEqual("");
+        expect(round.checkforTerneras("2","4")).toEqual("");
     });
 
     it("should check if the number is equal to the secret code plus 1", () => {
         round.setSecretcode("2")
-        expect(round.checkforTerneras("3")).toEqual("#");
+        expect(round.checkforTerneras("2","3")).toEqual("#");
     });
 
     it("should check if the number is equal to the secret code minus 1", () => {
         round.setSecretcode("2")
-        expect(round.checkforTerneras("1")).toEqual("#");
+        expect(round.checkforTerneras("2","1")).toEqual("#");
     });
 
     it("should check if the number is equal to the secret code no matter is bigger or smaller but just with a difference of 1", () => {
-        round.setSecretcode("23")
-        expect(round.checkforTerneras("24")).toEqual("#");
+        round.setSecretcode("235")
+        expect(round.checkforTerneras("285","326")).toEqual("##");
     });
-
     
-    it("should check if the number is equal to the secret code no matter is bigger or smaller but just with a difference of 1", () => {
-        round.setSecretcode("23")
-        expect(round.checkforTerneras("22")).toEqual("#");
-    });
-
   });
   describe("Attempts", () => {
     let round;
