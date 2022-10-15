@@ -85,6 +85,11 @@ describe("Enter Code", () => {
         round.setSecretcode("3")
         expect(round.checkforBison()).toEqual(true);
     });
+    
+    it("return that is not a prime number", () => {
+        round.setSecretcode("8")
+        expect(round.checkforBison()).toEqual(false);
+    });
 
   });
 

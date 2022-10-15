@@ -53,8 +53,30 @@ class Game{
         return bulls;
     }
 
-    checkforBison(){
+    
+    isPrime(n){
+    
+      if (n===1){
+        return false;
+      }
+      else if(n === 2){
         return true;
+      }else{
+        for(var x = 2; x < n; x++){
+          if(n % x === 0){
+            return false;
+          }
+        }
+        return true;  
+      }
+    }
+    checkforBison(){
+        let prime=false;
+        if(this.isPrime(parseInt(this.getSecretcode()))==true){
+            prime=true;
+        }
+        return prime;
+
     }
 
     checkforTerneras(scarr,garr){
