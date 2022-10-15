@@ -14,6 +14,9 @@ let round;
 start.addEventListener("click", () => {
     round = new Game();
     round.setSecretcode(code.value);
+    if(round.checkforBison()==true){
+        console.log("The number is prime")
+    }
     document.getElementById("secret-number").value = "";
     if(Attempts.value!=0){
         round.setAttempts(Attempts.value);
