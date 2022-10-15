@@ -22,7 +22,8 @@ class Game{
             let cows=0;
             bulls=this.checkforBulls(sctoarr,gtoarr);
             cows=this.checkforCows(sctoarr,gtoarr);
-            return this.numbertoCows(cows)+this.numbertobulls(bulls);
+            let terneras = this.checkforTerneras(this.secretCode,guess);
+            return this.numbertoCows(cows)+this.numbertobulls(bulls)+terneras;
         }
         return "You have no more attempts";
         
