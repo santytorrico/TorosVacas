@@ -53,6 +53,10 @@ class Game{
         return bulls;
     }
 
+    checkforBison(){
+        return true;
+    }
+
     checkforTerneras(scarr,garr){
         let ternera=0;
         const stocarr=scarr.split("");
@@ -121,6 +125,7 @@ class Game{
     getTries(){
         return this.tries;
     }
+
     
 }
 

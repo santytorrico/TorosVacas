@@ -76,6 +76,19 @@ describe("Enter Code", () => {
 
   });
 
+  describe("Bisons", () => {
+    let round;
+    beforeEach(()=>{
+        round = new Game();
+    });
+    it("return that is a prime number", () => {
+        round.setSecretcode("3")
+        expect(round.checkforBison()).toEqual(true);
+    });
+
+  });
+
+
   describe("LOSE", () => {
     let round;
     beforeEach(()=>{
